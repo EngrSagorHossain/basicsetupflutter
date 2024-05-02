@@ -20,3 +20,15 @@ TextStyle kNormalBlackText({required fontSize}) =>
       color: Colors.black,
       fontSize: fontSize,
     );
+TextStyle kBoldWhiteText = GoogleFonts.poppins().copyWith(
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+  fontSize: 33,
+);
+
+TextStyle kNormalWhiteText({required double fontSize}) =>
+    GoogleFonts.poppins().copyWith(
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      fontSize: fontSize,
+    );

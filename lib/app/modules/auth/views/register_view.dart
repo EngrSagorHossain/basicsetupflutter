@@ -8,7 +8,7 @@ import '../../../reuseable_widgets/radius_button_solid_color.dart';
 import '../../home/views/home_view.dart';
 
 class RegisterView extends GetView<AuthController> {
-  const RegisterView({Key? key}) : super(key: key);
+  const RegisterView({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
