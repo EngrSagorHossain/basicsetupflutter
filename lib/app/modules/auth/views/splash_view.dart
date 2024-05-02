@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../constant/screen_size.dart';
 import '../controllers/splash_controller.dart';
 
 class SplashView extends GetView {
@@ -8,6 +9,7 @@ class SplashView extends GetView {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('SplashView'),
