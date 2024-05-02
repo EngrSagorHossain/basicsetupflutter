@@ -1,4 +1,5 @@
 import 'package:basice_setup/app/colors/app_colors.dart';
+import 'package:basice_setup/app/modules/profile/views/profile_view.dart';
 import 'package:basice_setup/app/styles/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -26,10 +27,18 @@ class HomeView extends GetView<HomeController> {
             ),
           ),
           appBarName: 'Home Page'),
-      body: const Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'HomeView is working',
+              style: TextStyle(fontSize: 20),
+            ),
+            ElevatedButton(
+                onPressed: () => Get.to(const ProfileView()),
+                child: const Text('Profile Page'))
+          ],
         ),
       ),
     );
