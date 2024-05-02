@@ -1,7 +1,13 @@
+import 'package:basice_setup/app/modules/auth/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class RegisterView extends GetView {
+import '../../../colors/app_colors.dart';
+import '../../../reuseable_widgets/custom_textfield_with_icon.dart';
+import '../../../reuseable_widgets/radius_button_solid_color.dart';
+import '../../home/views/home_view.dart';
+
+class RegisterView extends GetView<AuthController> {
   const RegisterView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -38,76 +44,60 @@ class RegisterView extends GetView {
                 ),
                 Column(
                   children: <Widget>[
-                    TextField(
-                      decoration: InputDecoration(
-                          hintText: "Username",
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(18),
-                              borderSide: BorderSide.none),
-                          fillColor: Colors.purple.withOpacity(0.1),
-                          filled: true,
-                          prefixIcon: const Icon(Icons.person)),
-                    ),
-                    const SizedBox(height: 20),
-                    TextField(
-                      decoration: InputDecoration(
-                          hintText: "Email",
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(18),
-                              borderSide: BorderSide.none),
-                          fillColor: Colors.purple.withOpacity(0.1),
-                          filled: true,
-                          prefixIcon: const Icon(Icons.email)),
-                    ),
-                    const SizedBox(height: 20),
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: "Password",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(18),
-                            borderSide: BorderSide.none),
-                        fillColor: Colors.purple.withOpacity(0.1),
-                        filled: true,
-                        prefixIcon: const Icon(Icons.password),
+                    CustomTextFieldWithIcon(
+                      hintText: 'Phone Number',
+                      fillColor: kPrimaryColor.withOpacity(0.1),
+                      prefixIcon: const Icon(
+                        Icons.phone_android,
                       ),
-                      obscureText: true,
+                      textEditingController: controller.phoneController,
                     ),
                     const SizedBox(height: 20),
-                    TextField(
-                      decoration: InputDecoration(
-                        hintText: "Confirm Password",
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(18),
-                            borderSide: BorderSide.none),
-                        fillColor: Colors.purple.withOpacity(0.1),
-                        filled: true,
-                        prefixIcon: const Icon(Icons.password),
+                    CustomTextFieldWithIcon(
+                      hintText: 'Email',
+                      fillColor: kPrimaryColor.withOpacity(0.1),
+                      prefixIcon: const Icon(
+                        Icons.email,
                       ),
-                      obscureText: true,
+                      textEditingController: controller.emailController,
+                    ),
+                    const SizedBox(height: 20),
+                    CustomTextFieldWithIcon(
+                      hintText: 'Password',
+                      fillColor: kPrimaryColor.withOpacity(0.1),
+                      prefixIcon: const Icon(
+                        Icons.password,
+                      ),
+                      textEditingController: controller.passwordController,
+                    ),
+                    const SizedBox(height: 20),
+                    CustomTextFieldWithIcon(
+                      hintText: 'Confirm Password',
+                      fillColor: kPrimaryColor.withOpacity(0.1),
+                      prefixIcon: const Icon(
+                        Icons.password,
+                      ),
+                      textEditingController: controller.passwordController,
                     ),
                   ],
                 ),
-                Container(
-                    padding: const EdgeInsets.only(top: 3, left: 3),
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        shape: const StadiumBorder(),
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        backgroundColor: Colors.purple,
-                      ),
-                      child: const Text(
-                        "Sign up",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    )),
+                BorderRadiusButtonSolidColor(
+                  height: 80,
+                  width: double.maxFinite,
+                  color: kPrimaryColor,
+                  text: 'Register Now',
+                  textColor: Colors.white,
+                  onPressed: () => Get.to(
+                    const HomeView(),
+                  ),
+                ),
                 const Center(child: Text("Or")),
                 Container(
                   height: 45,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
                     border: Border.all(
-                      color: Colors.purple,
+                      color: kPrimaryColor,
                     ),
                     boxShadow: [
                       BoxShadow(
@@ -140,7 +130,7 @@ class RegisterView extends GetView {
                           "Sign In with Google",
                           style: TextStyle(
                             fontSize: 16,
-                            color: Colors.purple,
+                            color: kPrimaryColor,
                           ),
                         ),
                       ],
@@ -155,7 +145,7 @@ class RegisterView extends GetView {
                         onPressed: () {},
                         child: const Text(
                           "Login",
-                          style: TextStyle(color: Colors.purple),
+                          style: TextStyle(color: kPrimaryColor),
                         ))
                   ],
                 )

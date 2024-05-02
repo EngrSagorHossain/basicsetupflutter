@@ -1,8 +1,5 @@
 import 'package:basice_setup/app/colors/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../modules/auth/views/login_view.dart';
 
 class BorderRadiusButtonSolidColor extends StatelessWidget {
   final double height;
@@ -10,6 +7,7 @@ class BorderRadiusButtonSolidColor extends StatelessWidget {
   final Color color;
   final String text;
   final Color textColor;
+  final VoidCallback onPressed;
 
   const BorderRadiusButtonSolidColor({
     required this.height,
@@ -18,6 +16,7 @@ class BorderRadiusButtonSolidColor extends StatelessWidget {
     required this.text,
     required this.textColor,
     super.key,
+    required this.onPressed,
   });
   @override
   Widget build(BuildContext context) {
@@ -26,7 +25,7 @@ class BorderRadiusButtonSolidColor extends StatelessWidget {
       width: width,
       padding: const EdgeInsets.only(top: 25, left: 24, right: 24),
       child: ElevatedButton(
-        onPressed: () => Get.to(const LoginView()),
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           elevation: 0,
           backgroundColor: color,

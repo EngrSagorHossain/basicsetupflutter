@@ -11,10 +11,6 @@ class SplashView extends GetView {
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SplashView'),
-        centerTitle: true,
-      ),
       body: Center(
         child: GetBuilder<SplashController>(
           init: SplashController(), // Initialize SplashController

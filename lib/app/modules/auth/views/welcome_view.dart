@@ -1,5 +1,7 @@
 import 'package:basice_setup/app/colors/app_colors.dart';
 import 'package:basice_setup/app/constant/screen_size.dart';
+import 'package:basice_setup/app/modules/auth/views/login_view.dart';
+import 'package:basice_setup/app/modules/auth/views/register_view.dart';
 import 'package:basice_setup/app/styles/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -53,6 +55,7 @@ class WelcomeView extends GetView {
                   color: kPrimaryColor,
                   text: 'Login Now',
                   textColor: Colors.white,
+                  onPressed: () => Get.to(const LoginView()),
                 ),
                 BorderRadiusButtonSolidColor(
                   height: 80,
@@ -60,6 +63,7 @@ class WelcomeView extends GetView {
                   color: Colors.white,
                   text: 'Register Now',
                   textColor: kPrimaryColor,
+                  onPressed: () => Get.to(const RegisterView()),
                 ),
               ],
             ),

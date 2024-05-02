@@ -1,7 +1,13 @@
+import 'package:basice_setup/app/colors/app_colors.dart';
+import 'package:basice_setup/app/modules/auth/controllers/auth_controller.dart';
+import 'package:basice_setup/app/modules/home/views/home_view.dart';
+import 'package:basice_setup/app/reuseable_widgets/radius_button_solid_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginView extends GetView {
+import '../../../reuseable_widgets/custom_textfield_with_icon.dart';
+
+class LoginView extends GetView<AuthController> {
   const LoginView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -40,42 +46,32 @@ class LoginView extends GetView {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        TextField(
-          decoration: InputDecoration(
-              hintText: "Username",
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(18),
-                  borderSide: BorderSide.none),
-              fillColor: Colors.purple.withOpacity(0.1),
-              filled: true,
-              prefixIcon: const Icon(Icons.person)),
+        CustomTextFieldWithIcon(
+          hintText: 'Phone Number',
+          fillColor: kPrimaryColor.withOpacity(0.1),
+          prefixIcon: const Icon(
+            Icons.phone_android,
+          ),
+          textEditingController: controller.phoneController,
         ),
         const SizedBox(height: 10),
-        TextField(
-          decoration: InputDecoration(
-            hintText: "Password",
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(18),
-                borderSide: BorderSide.none),
-            fillColor: Colors.purple.withOpacity(0.1),
-            filled: true,
-            prefixIcon: const Icon(Icons.password),
+        CustomTextFieldWithIcon(
+          hintText: 'Password',
+          fillColor: kPrimaryColor.withOpacity(0.1),
+          prefixIcon: const Icon(
+            Icons.password,
           ),
+          textEditingController: controller.passwordController,
           obscureText: true,
         ),
         const SizedBox(height: 10),
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            shape: const StadiumBorder(),
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            backgroundColor: Colors.purple,
-          ),
-          child: const Text(
-            "Login",
-            style: TextStyle(fontSize: 20),
-          ),
-        )
+        BorderRadiusButtonSolidColor(
+            height: 80,
+            width: double.maxFinite,
+            color: kPrimaryColor,
+            text: 'Login',
+            textColor: Colors.white,
+            onPressed: () => Get.to(const HomeView()))
       ],
     );
   }
@@ -85,7 +81,7 @@ class LoginView extends GetView {
       onPressed: () {},
       child: const Text(
         "Forgot password?",
-        style: TextStyle(color: Colors.purple),
+        style: TextStyle(color: kPrimaryColor),
       ),
     );
   }
@@ -96,11 +92,12 @@ class LoginView extends GetView {
       children: [
         const Text("Dont have an account? "),
         TextButton(
-            onPressed: () {},
-            child: const Text(
-              "Sign Up",
-              style: TextStyle(color: Colors.purple),
-            ))
+          onPressed: () {},
+          child: const Text(
+            "Sign Up",
+            style: TextStyle(color: kPrimaryColor),
+          ),
+        ),
       ],
     );
   }
