@@ -1,5 +1,6 @@
 import 'package:basice_setup/app/colors/app_colors.dart';
 import 'package:basice_setup/app/modules/auth/controllers/auth_controller.dart';
+import 'package:basice_setup/app/modules/bottomNavigation/views/bottom_navigation_view.dart';
 import 'package:basice_setup/app/modules/home/views/home_view.dart';
 import 'package:basice_setup/app/reuseable_widgets/radius_button_solid_color.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,10 @@ class LoginView extends GetView<AuthController> {
       ),
     );
   }
+
+
+
+
 
   _header(context) {
     return const Column(
@@ -71,7 +76,7 @@ class LoginView extends GetView<AuthController> {
             color: kPrimaryColor,
             text: 'Login',
             textColor: Colors.white,
-            onPressed: () => Get.to(const HomeView()))
+            onPressed: () => Get.to(const BottomNavigationView()))
       ],
     );
   }

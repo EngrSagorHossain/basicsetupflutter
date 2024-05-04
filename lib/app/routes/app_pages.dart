@@ -1,7 +1,9 @@
-import 'package:basice_setup/app/modules/auth/views/splash_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/auth/bindings/auth_binding.dart';
+import '../modules/auth/views/splash_view.dart';
+import '../modules/bottomNavigation/bindings/bottom_navigation_binding.dart';
+import '../modules/bottomNavigation/views/bottom_navigation_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
@@ -36,6 +38,11 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => const ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOTTOM_NAVIGATION,
+      page: () => const BottomNavigationView(),
+      binding: BottomNavigationBinding(),
     ),
   ];
 }
